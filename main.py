@@ -38,34 +38,17 @@ class BST:
             # print(f"right - traversing {current_node.data}")
 
   def lookup(self, data):
-    flag = True
     curr_node = self.root
     if curr_node == None:
-      flag = False
-    while flag == True:
-      # print(curr_node.data)
+      return False
+    while curr_node:
       if data < curr_node.data:
-        #left
-        
         curr_node = curr_node.left
-        # print(f"inside left{curr_node.data}")
-        if curr_node == None:
-          return False
-        
-        if curr_node.data == data:
-          # print("found")
-          return True
-      else:
-        #right
+      elif data > curr_node.data:
         curr_node = curr_node.right
-        # print(f"inside right{curr_node.data}")        
-        # print(curr_node.data)
-        if curr_node == None:
-          return False
-        
-        if curr_node.data == data:
-          # print("found")
-          return True
+      elif curr_node.data == data:
+        return True
+    return False
     
   def print_tree(self):
       if self.root != None:
